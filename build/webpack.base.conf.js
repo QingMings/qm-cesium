@@ -4,6 +4,9 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+const  cesiumSource = '../node_modules/cesium/Source'
+const  cesiumNavi = '../node_modules/cesium-navigation/navigation'
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -29,13 +32,19 @@ module.exports = {
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath,
+    sourcePrefix: ' '
+  },
+  amd: {
+    toUrlUndefined: true
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'cesium': path.resolve(__dirname, cesiumSource),
+      'cesiumNavi': path.resolve(__dirname,cesiumNavi)
     }
   },
   module: {
@@ -75,8 +84,10 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
-    ]
-  },
+    ],
+    unknownContextRegExp: /^.\/.*$/,
+    unknownContextCritical: false
+},
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
