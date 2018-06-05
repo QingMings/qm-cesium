@@ -4,8 +4,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Cesium from 'cesium/Cesium'
-import widgets from 'cesium/Widgets/widgets.css'
+
 import FileSaver from 'file-saver'
 
 Vue.config.productionTip = false
@@ -17,7 +16,6 @@ new Vue({
   components: { App },
   template: '<App/>',
   mounted () {
-    var viewer = new Cesium.Viewer('cesiumContainer')
     // var blob = new Blob(['{"hello":"world"}'], {type: 'application/json'})
     // FileSaver.saveAs(blob, 'helloWorld.json')
   }
