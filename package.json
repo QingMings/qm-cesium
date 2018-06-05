@@ -5,7 +5,7 @@
   "author": "QingMings <1821063757@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --host 0.0.0.0 --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
@@ -17,6 +17,9 @@
     "cesium": "^1.44.0",
     "cesium-navigation": "^1.0.0",
     "file-saver": "^1.3.8",
+    "hammerjs": "^2.0.8",
+    "markdown-it": "^8.4.1",
+    "markdown-it-sanitizer": "^0.4.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
@@ -55,6 +58,8 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
