@@ -85,7 +85,7 @@ module.exports = {
         }
       }
     ],
-    unknownContextRegExp: /^.\/.*$/,
+    // unknownContextRegExp: /^.\/.*$/, // 这里好像会有错误，先注释了
     unknownContextCritical: false
 },
   node: {
